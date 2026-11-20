@@ -162,8 +162,9 @@ if(${TRITON_ENABLE_ROCM})
     set(CMAKE_HIP_COMPILER "${TRITON_ROCM_HOME}/llvm/bin/clang++")
   endif()
 
+  # gfx942: MI300X / MI308X / MI325X / MI300A. gfx950: MI355X.
   if(NOT CMAKE_HIP_ARCHITECTURES)
-    set(CMAKE_HIP_ARCHITECTURES "gfx906;gfx908;gfx90a;gfx1030;gfx1100;gfx1101;gfx940;gfx941;gfx942")
+    set(CMAKE_HIP_ARCHITECTURES "gfx942;gfx950")
   endif()
 
   file(GLOB rocm_cmake_components ${TRITON_ROCM_HOME}/lib/cmake/*)
